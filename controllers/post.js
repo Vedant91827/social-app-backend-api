@@ -20,7 +20,6 @@ export const getPosts = (req,res) => {
         // ? = follower user id should be our id stored as cookie named accessToken in our pc i.e userInfo.id by jwt
         // to see our post as well we add one more userId
 
-        const q2 = `INSERT INTO posts ("desc", "img", "createdAt", "userId") VALUES ?`;
         
         db.query(q,[userInfo.id,userInfo.id],(err,data)=>{
             if(err) return res.status(500).json(err);
